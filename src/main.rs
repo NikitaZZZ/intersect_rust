@@ -3,33 +3,33 @@ struct Point {
     y: f32,
 }
 
-struct Rectangle {
+struct Straight {
     top_left: Point,
     bottom_right: Point,
 }
 
 fn main() {
-    let rect1 = Rectangle {
+    let straight1 = Straight {
         top_left: Point { x: 4.89, y: 2.85 },
         bottom_right: Point { x: 2.59, y: 0.85 }
     };
 
-    let rect2 = Rectangle {
+    let straight2 = Straight {
         top_left: Point { x:4.44, y: 4.82 },
         bottom_right: Point { x: 1.0, y: 2.0 }
     };
 
-    intersect(&rect1, &rect2);
+    intersect(&straight1, &straight2);
 }
 
-fn intersect(rect1: &Rectangle, rect2: &Rectangle) {
-    if rect1.top_left.x < rect2.top_left.x &&
-        rect1.bottom_right.x > rect2.bottom_right.x &&
-        rect1.top_left.y > rect2.top_left.y {
+fn intersect(straight1: &Straight, straight2: &Straight) {
+    if straight1.top_left.x < straight2.top_left.x &&
+        straight1.bottom_right.x > straight2.bottom_right.x &&
+        straight1.top_left.y > straight2.top_left.y {
             println!("Пересекаются");
-    } else if rect1.top_left.x > rect2.top_left.x &&
-        rect1.bottom_right.x < rect2.bottom_right.x &&
-        rect1.top_left.y < rect2.top_left.y {
+    } else if straight1.top_left.x > straight2.top_left.x &&
+        straight1.bottom_right.x < straight2.bottom_right.x &&
+        straight1.top_left.y < straight2.top_left.y {
             println!("Пересекаются");
     } else {
         println!("Не пересекаются");
